@@ -1,4 +1,6 @@
 <div class="flex align-center gap-half pad-inline">
+  <%= avatar_tag user, loading: :lazy, class: "flex-item-no-shrink" %>
+
   <strong class="overflow-ellipsis">
     <%= user.name %>
   </strong>

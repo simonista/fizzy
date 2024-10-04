@@ -18,9 +18,9 @@
 
   <div class="flex align-center gap flex-item-no-shrink">
     <% bubble.assignees.each do |assignee| %>
-      <figure class="avatar fill-black txt-reversed flex-item-no-shrink"><strong><%= assignee.initials %></strong></figure>
+      <span class="txt-small"><%= avatar_tag assignee, loading: :lazy %></span>
     <% end %>
-  <div>
+  </div>
 
   <small class="flex align-center gap flex-item-no-shrink">
     <% bubble.tags.each do |tag| %>

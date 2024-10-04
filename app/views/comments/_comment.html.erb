@@ -1,5 +1,7 @@
 <div class="comment flex align-start full-width <%= "comment--mine" if comment.creator == Current.user %>" id="<%= dom_id(comment) %>">
-  <figure class="comment__avatar avatar fill-black txt-reversed flex-item-no-shrink"><strong><%= comment.creator.initials %></strong></figure>
+  <figure class="comment__avatar flex-item-no-shrink">
+    <%= avatar_tag comment.creator, loading: :lazy %>
+  </figure>
 
   <div class="comment__content flex flex-column full-width fill-shade border-radius">
     <div class="comment__author flex align-center gap-half">
