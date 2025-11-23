@@ -1,0 +1,33 @@
+servers:
+  web:
+    hosts:
+      - fizzy-beta-app-01.sc-chi-int.37signals.com
+      - fizzy-beta-app-101.df-iad-int.37signals.com
+    labels:
+      otel_scrape_enabled: true
+  jobs:
+    hosts:
+      - fizzy-beta-app-01.sc-chi-int.37signals.com
+    labels:
+      otel_scrape_enabled: true
+
+proxy:
+  ssl: false
+
+ssh:
+  user: app
+
+env:
+  clear:
+    RAILS_ENV: beta
+
+accessories:
+  load-balancer:
+    image: basecamp/kamal-proxy:lb
+    host: fizzy-beta-lb-01.sc-chi-int.37signals.com
+    options:
+      publish:
+        - 80:80
+        - 443:443
+    volumes:
+      - load-balancer:/home/kamal-proxy/.config/kamal-proxy
