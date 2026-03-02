@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ActiveStorageAnalyzeJobSuppressBroadcastsTest < ActiveSupport::TestCase
+class ActiveStorageAnalyzeJobSkipDetachedTest < ActiveSupport::TestCase
   test "skips analysis when blob has no attachments" do
     blob = ActiveStorage::Blob.create_and_upload!(
       io: StringIO.new("x" * 1024), filename: "orphan.txt", content_type: "text/plain"
